@@ -13,7 +13,23 @@ public class Souhait {
 	private String description;
 	@ManyToOne
 	private User personne;
+	@ManyToOne
+	private SSanta santa;
 	
+	public Souhait(String description, User personne, SSanta santa) {
+		this.description = description;
+		this.personne = personne;
+		this.santa = santa;
+	}
+
+	public SSanta getSanta() {
+		return santa;
+	}
+
+	public void setSanta(SSanta santa) {
+		this.santa = santa;
+	}
+
 	public Souhait() {
 	}
 
@@ -26,7 +42,8 @@ public class Souhait {
 
 	@Override
 	public String toString() {
-		return "Souhait [id=" + id + ", description=" + description + ", personne=" + personne + "]";
+		return "Souhait [id=" + id + ", description=" + description + ", personne=" + personne + ", santa=" + santa
+				+ "]";
 	}
 
 	public Long getId() {
