@@ -1,5 +1,7 @@
 package fr.solutec.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +17,11 @@ import fr.solutec.entities.SSanta;
 public class SSantaRest {
 	@Autowired
 	private SSantaRepository ssantaRepo;
+	
+	@RequestMapping(value = "/ssantas", method = RequestMethod.GET)
+	public List<SSanta> getAll(){
+		return (List<SSanta>) ssantaRepo.findAll();
+	}
 	
 	
 	@RequestMapping(value = "/createSSanta", method = RequestMethod.POST)
