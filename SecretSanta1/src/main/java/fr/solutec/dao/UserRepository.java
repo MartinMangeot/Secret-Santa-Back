@@ -7,6 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import fr.solutec.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
-	
-	public Optional<User> findByMailAndMdp(String mail, String mdp);
+
+
+
+public Optional<User> findByMailAndMdp(String mail, String mdp);
+
+public Optional<User> findByMail(String mail);
 }

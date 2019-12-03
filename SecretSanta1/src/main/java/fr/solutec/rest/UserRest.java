@@ -20,8 +20,16 @@ public class UserRest {
 	private UserRepository userRepo;
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public User inscriptionUser(@RequestBody User user) {
-		return userRepo.save(user);
+	public boolean inscriptionUser(@RequestBody User user) {
+		Optional<User> pe = userRepo.findByMail(user.getMail());		
+		if (pe.isPresent()) {	
+			return true;
+		}
+		else {
+			userRepo.save(user);
+			return false;
+		}
+			
 	}
 	
 	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
@@ -36,5 +44,7 @@ public class UserRest {
 		}
 		return pf;
 	}
-
+	
+	
+	
 }
