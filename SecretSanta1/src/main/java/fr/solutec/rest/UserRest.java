@@ -29,7 +29,6 @@ public class UserRest {
 		Optional<User> pe = userRepo.findByMailAndMdp(p.getMail(), p.getMdp());
 		User pf = new User();
 		if (pe.isPresent()) {	
-			
 			pf.setId(pe.get().getId());
 			pf.setMail(pe.get().getMail());
 			pf.setPseudo(pe.get().getPseudo());

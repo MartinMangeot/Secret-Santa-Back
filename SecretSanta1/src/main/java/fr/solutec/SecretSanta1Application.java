@@ -5,7 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.dao.SSantaRepository;
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.SSanta;
 import fr.solutec.entities.User;
 
 
@@ -16,6 +18,8 @@ public class SecretSanta1Application implements CommandLineRunner {
 	
 @Autowired
 private UserRepository userRepo;
+@Autowired
+private SSantaRepository ssantaRepo;
 
 
 	public static void main(String[] args) {
@@ -51,6 +55,18 @@ private UserRepository userRepo;
 		userRepo.save(u8);		
 		userRepo.save(u9);
 		userRepo.save(u10);	
+		
+		SSanta s1 = new SSanta("Noel 1", u1, true);
+		SSanta s2 = new SSanta("Noel 2", u1, true);
+		SSanta s3 = new SSanta("Noel 3", u2, true);
+		SSanta s4 = new SSanta("Noel 4", u3, true);
+		SSanta s5 = new SSanta("Noel 4", u3, true);
+		
+		ssantaRepo.save(s1);
+		ssantaRepo.save(s2);
+		ssantaRepo.save(s3);
+		ssantaRepo.save(s4);
+		ssantaRepo.save(s5);
 		
 		
 	}
