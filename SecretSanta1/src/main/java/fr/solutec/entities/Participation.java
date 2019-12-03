@@ -26,6 +26,11 @@ public class Participation {
 		this.participant = participant;
 		this.evenement = evenement;
 	}
+	
+	public Participation(User participant, SSanta evenement) {
+		this.participant = participant;
+		this.evenement = evenement;
+	}
 
 
 	public long getId() {

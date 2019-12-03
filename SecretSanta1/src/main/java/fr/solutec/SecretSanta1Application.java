@@ -5,8 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.dao.ParticipationRepository;
 import fr.solutec.dao.SSantaRepository;
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.Participation;
 import fr.solutec.entities.SSanta;
 import fr.solutec.entities.User;
 
@@ -20,6 +22,8 @@ public class SecretSanta1Application implements CommandLineRunner {
 private UserRepository userRepo;
 @Autowired
 private SSantaRepository ssantaRepo;
+@Autowired
+private ParticipationRepository participationRepo;
 
 
 	public static void main(String[] args) {
@@ -67,6 +71,32 @@ private SSantaRepository ssantaRepo;
 		ssantaRepo.save(s3);
 		ssantaRepo.save(s4);
 		ssantaRepo.save(s5);
+		
+		Participation p1 = new Participation(u1,s1);
+		Participation p2 = new Participation(u2,s1);
+		Participation p3 = new Participation(u3,s1);
+		Participation p4 = new Participation(u4,s1);
+		Participation p5 = new Participation(u5,s1);
+		Participation p6 = new Participation(u1,s2);
+		Participation p7 = new Participation(u1,s3);
+		Participation p8 = new Participation(u2,s2);
+		Participation p9 = new Participation(u3,s3);
+		Participation p10 = new Participation(u6,s3);
+		Participation p11 = new Participation(u6,s2);
+		Participation p12 = new Participation(u7,s3);
+		
+		participationRepo.save(p1);
+		participationRepo.save(p2);
+		participationRepo.save(p3);
+		participationRepo.save(p4);
+		participationRepo.save(p5);
+		participationRepo.save(p6);
+		participationRepo.save(p7);
+		participationRepo.save(p8);
+		participationRepo.save(p9);
+		participationRepo.save(p10);
+		participationRepo.save(p11);
+		participationRepo.save(p12);
 		
 		
 	}
