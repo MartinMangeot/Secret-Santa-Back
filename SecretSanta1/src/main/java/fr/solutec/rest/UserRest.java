@@ -21,9 +21,18 @@ public class UserRest {
 	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public boolean inscriptionUser(@RequestBody User user) {
-		Optional<User> pe = userRepo.findByMail(user.getMail());		
-		if (pe.isPresent()) {	
-			return true;
+		Optional<User> pe = userRepo.findByMail(user.getMail());
+		User pf = new User();
+		if (pe.isPresent()) {
+			pf.setInscriptionEnd(pe.get().getInscriptionEnd());
+			if(pf.getInscriptionEnd()==false) {
+				user.setId(pf.getId());
+				userRepo.save(user);
+				
+				return false;
+			}else {
+				return true;	
+			}						
 		}
 		else {
 			user.setInscriptionEnd(true);
