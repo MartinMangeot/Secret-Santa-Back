@@ -48,11 +48,11 @@ private UserRepository userRepo;
 		userRepo.save(u5);
 		userRepo.save(u6);
 		userRepo.save(u7);
-		userRepo.save(u8);
+		userRepo.save(u8);		
 		userRepo.save(u9);
+		userRepo.save(u10);	
 		
 		
-		userRepo.save(u10);		
 	}
 	
 	
