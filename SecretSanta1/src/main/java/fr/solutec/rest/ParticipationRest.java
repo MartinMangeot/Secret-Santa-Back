@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.ParticipationRepository;
 import fr.solutec.entities.Participation;
+import fr.solutec.entities.SSanta;
 
 @RestController
 @CrossOrigin("*")
@@ -39,6 +40,14 @@ public class ParticipationRest {
 	public List<Participation> recupSantaByIdUser(@PathVariable Long  id) {
 		return participationRepo.findEvenementByParticipantId(id);
 	}
+	
+	@RequestMapping(value = "/santa/participants/{id}", method = RequestMethod.GET)
+	public List<Participation> recupParticipants(@PathVariable Long id) {
+		return participationRepo.findParticipantByEvenementId(id);
+	}
+
+
+	
 	
 	
 
