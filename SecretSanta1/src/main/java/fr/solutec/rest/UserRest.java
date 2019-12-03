@@ -26,6 +26,7 @@ public class UserRest {
 			return true;
 		}
 		else {
+			user.setInscriptionEnd(true);
 			userRepo.save(user);
 			return false;
 		}
