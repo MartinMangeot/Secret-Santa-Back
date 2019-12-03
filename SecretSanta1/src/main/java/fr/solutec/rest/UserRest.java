@@ -19,6 +19,27 @@ public class UserRest {
 	@Autowired
 	private UserRepository userRepo;
 	
+	@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
+	public User invitationUser(@RequestBody User user) {
+		Optional<User> pe = userRepo.findByMail(user.getMail());
+		User pf = new User();
+		if (pe.isPresent()) {
+			pf.setId(pe.get().getId());
+			pf.setMail(pe.get().getMail());
+			pf.setPseudo(pe.get().getPseudo());
+			pf.setInscriptionEnd(true);
+				return pf;
+			}
+		else {
+			
+			pf.setMail(pe.get().getMail());
+			pf.setInscriptionEnd(false);
+			userRepo.save(pf);
+			return pf;	
+			}						
+		}
+	
+	
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public boolean inscriptionUser(@RequestBody User user) {
 		Optional<User> pe = userRepo.findByMail(user.getMail());

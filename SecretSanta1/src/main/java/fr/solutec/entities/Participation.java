@@ -16,21 +16,28 @@ public class Participation {
 	SSanta evenement;
 	
 	
+
+
 	public Participation() {
 		
 	}
 
 
-	public Participation(long id, User participant, SSanta evenement) {
+	public Participation(User participant, SSanta evenement) {
+		super();
+		this.participant = participant;
+		this.evenement = evenement;
+	}
+
+
+	public Participation(long id, User participant, SSanta evenement, boolean accepte) {
 		this.id = id;
 		this.participant = participant;
 		this.evenement = evenement;
 	}
 	
-	public Participation(User participant, SSanta evenement) {
-		this.participant = participant;
-		this.evenement = evenement;
-	}
+	
+
 
 
 	public long getId() {
@@ -65,8 +72,11 @@ public class Participation {
 
 	@Override
 	public String toString() {
-		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + "]";
+		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement  + "]";
 	}
+
+
+	
 
 	
 
