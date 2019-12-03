@@ -37,6 +37,10 @@ public class ParticipationRest {
 	
 	@RequestMapping(value = "/santa/{id}", method = RequestMethod.GET)
 	public List<Participation> recupSantaByIdUser(@PathVariable Long  id) {
+		
+		for (Participation iterable_element : participationRepo.findEvenementByParticipantId(id)) {
+			System.out.println(iterable_element);
+		}
 		return participationRepo.findEvenementByParticipantId(id);
 	}
 	

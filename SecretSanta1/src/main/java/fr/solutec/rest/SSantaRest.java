@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.solutec.dao.ParticipationRepository;
 import fr.solutec.dao.SSantaRepository;
+import fr.solutec.entities.Participation;
 import fr.solutec.entities.SSanta;
 
 @RestController
@@ -17,6 +19,9 @@ import fr.solutec.entities.SSanta;
 public class SSantaRest {
 	@Autowired
 	private SSantaRepository ssantaRepo;
+	
+	@Autowired
+	private ParticipationRepository partiRepos;
 	
 	@RequestMapping(value = "/ssantas", method = RequestMethod.GET)
 	public List<SSanta> getAll(){
@@ -26,7 +31,12 @@ public class SSantaRest {
 	
 	@RequestMapping(value = "/createSSanta", method = RequestMethod.POST)
 	public SSanta inscriptionSSanta(@RequestBody SSanta SSanta) {
-		return ssantaRepo.save(SSanta);
+		Participation p = new Participation();
+		SSanta s = ssantaRepo.save(SSanta);
+		p.setEvenement(s);
+		p.setParticipant(s.getCreateur());
+		partiRepos.save(p);
+		return s;
 	}
 	
 }
