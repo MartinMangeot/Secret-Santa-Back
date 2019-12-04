@@ -15,6 +15,7 @@ public class Participation {
 	@ManyToOne
 	SSanta evenement;
 	
+	boolean participe;
 	
 
 
@@ -38,6 +39,26 @@ public class Participation {
 	
 	
 
+
+
+	
+
+	public Participation(User participant, SSanta evenement, boolean participe) {
+		super();
+		this.participant = participant;
+		this.evenement = evenement;
+		this.participe = participe;
+	}
+
+
+	public boolean isParticipe() {
+		return participe;
+	}
+
+
+	public void setParticipe(boolean participe) {
+		this.participe = participe;
+	}
 
 
 	public long getId() {

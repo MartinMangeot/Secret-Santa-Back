@@ -72,18 +72,19 @@ private ParticipationRepository participationRepo;
 		ssantaRepo.save(s4);
 		ssantaRepo.save(s5);
 		
-		Participation p1 = new Participation(u1,s1);
-		Participation p2 = new Participation(u2,s1);
-		Participation p3 = new Participation(u3,s1);
-		Participation p4 = new Participation(u4,s1);
-		Participation p5 = new Participation(u5,s1);
-		Participation p6 = new Participation(u1,s2);
-		Participation p7 = new Participation(u1,s3);
-		Participation p8 = new Participation(u2,s2);
-		Participation p9 = new Participation(u3,s3);
-		Participation p10 = new Participation(u6,s3);
-		Participation p11 = new Participation(u6,s2);
-		Participation p12 = new Participation(u7,s3);
+		Participation p1 = new Participation(u1,s1,true);
+		Participation p2 = new Participation(u2,s1,false);
+		Participation p3 = new Participation(u3,s1,true);
+		Participation p4 = new Participation(u4,s1,true);
+		Participation p5 = new Participation(u5,s1,true);
+		Participation p6 = new Participation(u1,s2,true);
+		Participation p7 = new Participation(u1,s3,true);
+		Participation p8 = new Participation(u2,s2,true);
+		Participation p9 = new Participation(u3,s3,false);
+		Participation p10 = new Participation(u6,s3,true);
+		Participation p11 = new Participation(u6,s2,true);
+		Participation p12 = new Participation(u7,s3,true);
+		Participation p13 = new Participation(u2,s3,true);
 		
 		participationRepo.save(p1);
 		participationRepo.save(p2);
@@ -97,6 +98,7 @@ private ParticipationRepository participationRepo;
 		participationRepo.save(p10);
 		participationRepo.save(p11);
 		participationRepo.save(p12);
+		participationRepo.save(p13);
 		
 		
 	}
