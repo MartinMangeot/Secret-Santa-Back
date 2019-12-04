@@ -15,6 +15,6 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public List<Participation> findParticipantByEvenementId(Long id);
 	
-	//public Participation findByUser(User user);
+	public Participation findByUser(User participant);
 
 }

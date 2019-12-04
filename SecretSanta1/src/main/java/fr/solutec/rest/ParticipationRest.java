@@ -55,7 +55,8 @@ public class ParticipationRest {
 	//@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
 	//public Participation creerInvitation(@PathVariable Long id) {
 		
-//	}
+
+	//}
 
 
 	
