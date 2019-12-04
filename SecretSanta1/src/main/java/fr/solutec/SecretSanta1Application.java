@@ -29,7 +29,7 @@ private ParticipationRepository participationRepo;
 	public static void main(String[] args) {
 		SpringApplication.run(SecretSanta1Application.class, args);
 			
-		System.out.println("hello");	
+		System.out.println("******************************************** lancement terminé avec success ********************************************");	
 		
 		
 	}
@@ -37,7 +37,8 @@ private ParticipationRepository participationRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		System.out.println("******************************************** debut instruction run ********************************************");
+		
 		User u1 = new User( "test@test.test", "test", "test",true);
 		User u2 = new User( "coco@coco.co", "coco", "coco",true);
 		User u3 = new User( "jean@jean.co", "jean", "jean",true);
