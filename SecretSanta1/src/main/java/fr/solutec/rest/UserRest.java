@@ -20,7 +20,7 @@ public class UserRest {
 	private UserRepository userRepo;
 	
 	@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
-	public User invitationUser(@RequestBody User user) {
+	public User invitationUser(@RequestBody User user ) {
 		Optional<User> pe = userRepo.findByMail(user.getMail());
 		User pf = new User();
 		if (pe.isPresent()) {
