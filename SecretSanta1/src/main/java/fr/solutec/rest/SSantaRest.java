@@ -36,6 +36,7 @@ public class SSantaRest {
 		SSanta s = ssantaRepo.save(SSanta);
 		p.setEvenement(s);
 		p.setParticipant(s.getCreateur());
+		p.setParticipe(true);
 		partiRepos.save(p);
 		return s;
 	}

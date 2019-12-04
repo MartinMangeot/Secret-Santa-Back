@@ -14,37 +14,34 @@ public class Participation {
 	User participant;
 	@ManyToOne
 	SSanta evenement;
-	boolean accepte;
 	
+	boolean participe;
 	
-	public Participation(User participant, SSanta evenement, boolean accepte) {
-		super();
-		this.participant = participant;
-		this.evenement = evenement;
-		this.accepte = accepte;
-	}
-
 
 	public Participation() {
 		
 	}
 
 
-	public Participation(long id, User participant, SSanta evenement, boolean accepte) {
-		this.id = id;
+	
+
+	
+
+	public Participation(User participant, SSanta evenement, boolean participe) {
+		super();
 		this.participant = participant;
 		this.evenement = evenement;
-		this.accepte = accepte;
-	}
-	
-	
-	public boolean isAccepte() {
-		return accepte;
+		this.participe = participe;
 	}
 
 
-	public void setAccepte(boolean accepte) {
-		this.accepte = accepte;
+	public boolean isParticipe() {
+		return participe;
+	}
+
+
+	public void setParticipe(boolean participe) {
+		this.participe = participe;
 	}
 
 
@@ -78,11 +75,29 @@ public class Participation {
 	}
 
 
+
+
+
+
+	public Participation(long id, User participant, SSanta evenement, boolean participe) {
+		super();
+		this.id = id;
+		this.participant = participant;
+		this.evenement = evenement;
+		this.participe = participe;
+	}
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", accepte="
-				+ accepte + "]";
+		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", participe="
+				+ participe + "]";
 	}
+
 
 
 	
