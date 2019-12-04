@@ -15,11 +15,21 @@ public class Souhait {
 	private User personne;
 	@ManyToOne
 	private SSanta santa;
+	private int ordre;
 	
-	public Souhait(String description, User personne, SSanta santa) {
+	public Souhait(String description, User personne, SSanta santa, int ordre) {
 		this.description = description;
 		this.personne = personne;
 		this.santa = santa;
+		this.ordre = ordre;
+	}
+
+	public int getOrdre() {
+		return ordre;
+	}
+
+	public void setOrdre(int ordre) {
+		this.ordre = ordre;
 	}
 
 	public SSanta getSanta() {
