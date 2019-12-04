@@ -18,28 +18,12 @@ public class Participation {
 	boolean participe;
 	
 
-
 	public Participation() {
 		
 	}
 
 
-	public Participation(User participant, SSanta evenement) {
-		super();
-		this.participant = participant;
-		this.evenement = evenement;
-	}
-
-
-	public Participation(long id, User participant, SSanta evenement, boolean accepte) {
-		this.id = id;
-		this.participant = participant;
-		this.evenement = evenement;
-	}
 	
-	
-
-
 
 	
 
@@ -91,10 +75,29 @@ public class Participation {
 	}
 
 
+
+
+
+
+	public Participation(long id, User participant, SSanta evenement, boolean participe) {
+		super();
+		this.id = id;
+		this.participant = participant;
+		this.evenement = evenement;
+		this.participe = participe;
+	}
+
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement  + "]";
+		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", participe="
+				+ participe + "]";
 	}
+
 
 
 	

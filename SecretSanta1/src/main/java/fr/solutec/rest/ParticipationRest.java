@@ -53,10 +53,19 @@ public class ParticipationRest {
 		return participationRepo.findParticipantByEvenementId(id);
 	}
 	
-	//@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
-	//public Participation creerInvitation(@PathVariable Long id) {
+	@RequestMapping(value = "/home/invitation/inv", method = RequestMethod.POST)
+	public Participation creerInvitation(@PathVariable User user, @PathVariable SSanta evenement) {
+		Participation p = new Participation();
+		p.setEvenement(evenement);
+		p.setParticipant(user);
+		p.setParticipe(false);
 		
-//	}
+		participationRepo.save(p);
+		
+		return p;
+		
+
+	}
 
 
 	

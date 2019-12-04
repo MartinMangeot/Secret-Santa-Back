@@ -76,6 +76,7 @@ private SouhaitRepository souhaitRepo;
 		ssantaRepo.save(s4);
 		ssantaRepo.save(s5);
 		
+
 		Participation p1 = new Participation(u1,s1,true);
 		Participation p2 = new Participation(u2,s1,false);
 		Participation p3 = new Participation(u3,s1,true);
@@ -145,17 +146,11 @@ private SouhaitRepository souhaitRepo;
 		souhaitRepo.save(sh17);
 		souhaitRepo.save(sh18);
 		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
-	
-	
+		
+		
+		
+
 	
 	
 
