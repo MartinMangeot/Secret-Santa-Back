@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class SouhaitRest {
 	@Autowired
 	private SouhaitRepository souhaitRepo;
 	
-	@RequestMapping(value = "/user/santa/souhaits", method = RequestMethod.GET)
+	@RequestMapping(value = "/souhaits", method = RequestMethod.GET)
 	public List<Souhait> getAll(){
 		return (List<Souhait>) souhaitRepo.findAll();
 	}
@@ -27,6 +28,18 @@ public class SouhaitRest {
 	public List<Souhait> getAllByUserID(@PathVariable Long idUser, @PathVariable Long idEvent){
 		return (List<Souhait>) souhaitRepo.findAllByPersonneIdAndBySantaId(idUser,idEvent);
 	}
+	
+	@RequestMapping(value = "/souhait", method = RequestMethod.POST)
+	public Souhait save(@RequestBody Souhait s){
+		return souhaitRepo.save(s);
+	}
+	
+	@RequestMapping(value = "/souhait/{id}", method = RequestMethod.DELETE)
+	public boolean delete(@PathVariable Long id){
+		souhaitRepo.deleteById(id);
+		return true;
+	}
+	
 	
 	
 

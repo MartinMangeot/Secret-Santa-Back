@@ -7,9 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.solutec.dao.ParticipationRepository;
 import fr.solutec.dao.SSantaRepository;
+import fr.solutec.dao.SouhaitRepository;
 import fr.solutec.dao.UserRepository;
 import fr.solutec.entities.Participation;
 import fr.solutec.entities.SSanta;
+import fr.solutec.entities.Souhait;
 import fr.solutec.entities.User;
 
 
@@ -24,6 +26,8 @@ private UserRepository userRepo;
 private SSantaRepository ssantaRepo;
 @Autowired
 private ParticipationRepository participationRepo;
+@Autowired
+private SouhaitRepository souhaitRepo;
 
 
 	public static void main(String[] args) {
@@ -103,13 +107,51 @@ private ParticipationRepository participationRepo;
 		participationRepo.save(p13);
 		
 		
+		Souhait sh1 = new Souhait("Une voiture", u1, s1,1);
+		Souhait sh2 = new Souhait("Une console", u1, s1,2);
+		Souhait sh3 = new Souhait("Une télé", u1, s1,3);
+		Souhait sh4 = new Souhait("Un voyage", u2, s1,1);
+		Souhait sh5 = new Souhait("Une voiture", u3, s1,2);
+		Souhait sh6 = new Souhait("Une toupie", u3, s1,1);
+		
+		Souhait sh7 = new Souhait("Une voiture", u1, s2,1);
+		Souhait sh8 = new Souhait("Une console", u2, s2,2);
+		Souhait sh9 = new Souhait("Une télé", u2, s2,1);
+		Souhait sh10 = new Souhait("Une voiture", u3, s2,1);
+		Souhait sh11 = new Souhait("Une toupie", u4, s2,1);
+		Souhait sh12 = new Souhait("Un voyage", u4, s2,2);
+		
+		Souhait sh13 = new Souhait("Une voiture", u1, s3,2);
+		Souhait sh14 = new Souhait("Une voiture", u1, s3,1);
+		Souhait sh15 = new Souhait("Une voiture", u1, s3,4);
+		Souhait sh16 = new Souhait("Une voiture", u1, s3,6);
+		Souhait sh17 = new Souhait("Une voiture", u1, s3,3);
+		Souhait sh18 = new Souhait("Une voiture", u1, s3,5);
+		
+		souhaitRepo.save(sh1);
+		souhaitRepo.save(sh2);
+		souhaitRepo.save(sh3);
+		souhaitRepo.save(sh4);
+		souhaitRepo.save(sh5);
+		souhaitRepo.save(sh6);
+		souhaitRepo.save(sh7);
+		souhaitRepo.save(sh8);
+		souhaitRepo.save(sh9);
+		souhaitRepo.save(sh10);
+		souhaitRepo.save(sh11);
+		souhaitRepo.save(sh12);
+		souhaitRepo.save(sh13);
+		souhaitRepo.save(sh14);
+		souhaitRepo.save(sh15);
+		souhaitRepo.save(sh16);
+		souhaitRepo.save(sh17);
+		souhaitRepo.save(sh18);
+		
 	}
-	
-	
-	
-	
-	
-	
+		
+		
+		
+
 	
 	
 
