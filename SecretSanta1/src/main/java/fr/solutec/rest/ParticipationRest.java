@@ -44,8 +44,17 @@ public class ParticipationRest {
 //	
 	@RequestMapping(value = "/participantsanta/{id}/{participe}", method = RequestMethod.GET)
 	public List<Participation> recupSantaAndParticipantByIdUserAndByParticipe(@PathVariable Long  id, @PathVariable boolean participe) {
+		//Participation p = new Participation();
+				
+		//p = participationRepo.findByParticipantIdAndPresent(id,participe);
+		
 		
 		return participationRepo.findByParticipantIdAndPresent(id,participe);
+	}
+	
+	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)
+	public Participation recupParticipationFromSantaAndUser(@PathVariable Long  idUser, @PathVariable Long idSanta) {
+		return participationRepo.findByParticipantIdAndEvenementId(idUser,idSanta);
 	}
 	
 	@RequestMapping(value = "/santa/{id}", method = RequestMethod.GET)
@@ -62,13 +71,28 @@ public class ParticipationRest {
 		return participationRepo.findParticipantByEvenementId(id);
 	}
 	
+
+	
+	@RequestMapping(value = "/validParticipation", method = RequestMethod.PUT)
+	public void confirmerParticipationByUser(@RequestBody Participation part) {
+		//Participation p =new Participation();
+		//p= participationRepo.findByParticipantAndEvenement(part.getParticipant(), part.getEvenement());  
+		
+		part.setPresent(true);
+		participationRepo.save(part);
+	}
+	
+	
+	
+	//@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
+	//public Participation creerInvitation(@PathVariable Long id) {
+
 	@RequestMapping(value = "/home/invitation/inv", method = RequestMethod.POST)
 	public Participation creerInvitation(@PathVariable User user, @PathVariable SSanta evenement) {
 		Participation p = new Participation();
 		p.setEvenement(evenement);
 		p.setParticipant(user);
 		p.setPresent(false);
-		
 		participationRepo.save(p);
 		
 		return p;
@@ -97,7 +121,18 @@ public class ParticipationRest {
 		return participationRepo.save(p);
 	}
 
+	@RequestMapping(value = "/participation/valider", method = RequestMethod.POST)
+	public Participation modifbooleanValidation(@RequestBody Participation p) {
+		//Optional<Participation> pRecup = participationRepo.findById(p.getId());
+		Participation parti = new Participation();
+		parti=p;
+		parti.setPresent(true);
+		participationRepo.save(parti);
+		
+		return parti;
+		
 
+	}
 	
 	
 	
