@@ -11,7 +11,7 @@ public interface MurRepository extends CrudRepository<Mur, Long> {
 	
 	public Optional<Mur> findByid(Long id);
 	
-	public List<Mur> findByEventId(Long id);
+	public List<Mur> findByParticipationEvenementId(Long id);
 	
 	
 
