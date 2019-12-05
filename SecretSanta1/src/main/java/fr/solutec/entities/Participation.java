@@ -8,101 +8,65 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Participation {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	long id;
-	@ManyToOne
-	User participant;
-	@ManyToOne
-	SSanta evenement;
-	
-	boolean participe;
-	
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@ManyToOne
+	private User participant;
+	@ManyToOne
+	private SSanta evenement;
+
+	private boolean present;
 
 	public Participation() {
-		
+
 	}
-
-
-	public Participation(User participant, SSanta evenement) {
-		super();
-		this.participant = participant;
-		this.evenement = evenement;
-	}
-
-
-	public Participation(long id, User participant, SSanta evenement, boolean accepte) {
-		this.id = id;
-		this.participant = participant;
-		this.evenement = evenement;
-	}
-	
-	
-
-
-
-	
 
 	public Participation(User participant, SSanta evenement, boolean participe) {
 		super();
 		this.participant = participant;
 		this.evenement = evenement;
-		this.participe = participe;
+		this.present = participe;
+	}
+
+	public boolean isPresent() {
+		return present;
+	}
+
+	public void setPresent(boolean present) {
+		this.present = present;
 	}
 
 
-	public boolean isParticipe() {
-		return participe;
-	}
-
-
-	public void setParticipe(boolean participe) {
-		this.participe = participe;
-	}
-
-
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
 
 	public User getParticipant() {
 		return participant;
 	}
 
-
 	public void setParticipant(User participant) {
 		this.participant = participant;
 	}
-
 
 	public SSanta getEvenement() {
 		return evenement;
 	}
 
-
 	public void setEvenement(SSanta evenement) {
 		this.evenement = evenement;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement  + "]";
+		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", participe="
+				+ present + "]";
 	}
-
-
-	
-
-	
-
-	
-	
-	
 
 }
