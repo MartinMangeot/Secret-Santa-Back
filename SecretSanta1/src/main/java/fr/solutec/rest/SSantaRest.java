@@ -14,6 +14,7 @@ import fr.solutec.dao.ParticipationRepository;
 import fr.solutec.dao.SSantaRepository;
 import fr.solutec.entities.Participation;
 import fr.solutec.entities.SSanta;
+import fr.solutec.entities.User;
 
 @RestController
 @CrossOrigin("*")
@@ -39,6 +40,11 @@ public class SSantaRest {
 		p.setPresent(true);
 		partiRepos.save(p);
 		return s;
+	}
+	
+	@RequestMapping(value = "/santaCreateur/{id}", method = RequestMethod.GET)
+	public User getCreateurDuSanta(@PathVariable Long id){
+		return  ssantaRepo.findCreateurById(id);
 	}
 	
 	

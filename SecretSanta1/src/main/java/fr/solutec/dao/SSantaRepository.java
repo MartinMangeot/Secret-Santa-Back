@@ -11,4 +11,5 @@ public interface SSantaRepository extends CrudRepository<SSanta, Long>{
 	
 	public Optional<SSanta> findByCreateur(User createur);
 	
+	public User findCreateurById(Long id );
 }
