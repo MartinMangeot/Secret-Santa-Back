@@ -18,16 +18,20 @@ public class Participation {
 	private SSanta evenement;
 
 	private boolean present;
+	
+	private Long idCadeau;
+	
+
+	public Long getIdCadeau() {
+		return idCadeau;
+	}
+
+	public void setIdCadeau(Long idCadeau) {
+		this.idCadeau = idCadeau;
+	}
 
 	public Participation() {
 
-	}
-
-	public Participation(User participant, SSanta evenement, boolean participe) {
-		super();
-		this.participant = participant;
-		this.evenement = evenement;
-		this.present = participe;
 	}
 
 	public boolean isPresent() {
@@ -65,8 +69,17 @@ public class Participation {
 
 	@Override
 	public String toString() {
-		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", participe="
-				+ present + "]";
+		return "Participation [id=" + id + ", participant=" + participant + ", evenement=" + evenement + ", present="
+				+ present + ", idCadeau=" + idCadeau + "]";
 	}
+
+	public Participation(User participant, SSanta evenement, boolean present, Long idCadeau) {
+		super();
+		this.participant = participant;
+		this.evenement = evenement;
+		this.present = present;
+		this.idCadeau = idCadeau;
+	}
+	
 
 }

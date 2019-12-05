@@ -1,7 +1,11 @@
 package fr.solutec.rest;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +25,7 @@ import fr.solutec.entities.User;
 @RestController
 @CrossOrigin("*")
 public class ParticipationRest {
+	private static final Random random = new Random();
 	
 	@Autowired
 	private ParticipationRepository participationRepo;
@@ -92,13 +97,38 @@ public class ParticipationRest {
 			user = uRespos.save(u);
 		}
 		
-		Participation p = new Participation(user, s, false);
+		Participation p = new Participation(user, s, false, null);
 		
 		return participationRepo.save(p);
 	}
 
 
-	
+	@RequestMapping(value = "/santa/tirage/{id}", method = RequestMethod.GET)
+	public List<Participation> tirage(@PathVariable Long id) {
+		List<Participation> l = participationRepo.findParticipantByEvenementId(id);
+		ArrayList<Long> a = new ArrayList<Long>();
+		int x = l.size();
+		Participation p = new Participation();
+		Collections.shuffle(l, new Random());
+		for (int i = 0; i < x; i++) {
+			
+			p=l.get(i);
+			
+			a.add(p.getId());
+		}
+		Collections.shuffle(a, new Random(1));
+		for (int i = 0; i < x; i++) {
+			
+			p=l.get(i);
+			
+			p.setIdCadeau(a.get(i));
+			participationRepo.save(p);
+			
+			//l.set(i, p);
+		}	
+		System.out.println(l.toString());
+		return l;
+	}
 	
 	
 
