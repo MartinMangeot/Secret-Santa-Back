@@ -47,16 +47,16 @@ private MurRepository murRepo;
 	public void run(String... args) throws Exception {
 		System.out.println("******************************************** debut instruction run ********************************************");
 		
-		User u1 = new User( "test@test.test", "test", "test",true);
-		User u2 = new User( "coco@coco.co", "coco", "coco",true);
-		User u3 = new User( "jean@jean.co", "jean", "jean",true);
-		User u4 = new User( "Wak@and.a", "wakanda", "wakanda",true);
-		User u5 = new User( "jojo@jojo.jo", "jojo", "jojo",true);
-		User u6 = new User( "martin@martin.ma", "martin", "martin",true);
-		User u7 = new User( "Michael@Michael.mi", "Michael", "Michael",true);
-		User u8 = new User( "pere@noel.no", "noel", "noel",true);
-		User u9 = new User( "test2@test2.test2", "test2", "test2",true);
-		User u10 = new User( "bob@bob.bob", "bob", "bob",true);
+		User u1 = new User( "test@test.test", "test", "test","test","test",true);
+		User u2 = new User( "coco@coco.co", "coco", "coco","Ras","Corentin",true);
+		User u3 = new User( "jean@jean.co", "jean", "jean","Jeanjean","Jean",true);
+		User u4 = new User( "Wak@and.a", "wakanda", "wakanda","Anda","Wak",true);
+		User u5 = new User( "jojo@jojo.jo", "jojo", "jojo","Djodjo","Jojo",true);
+		User u6 = new User( "martin@martin.ma", "martin", "martin","Man","Martin",true);
+		User u7 = new User( "Michael@Michael.mi", "Michael", "Michael","Rep","Michael",true);
+		User u8 = new User( "pere@noel.no", "noel", "noel","Noel","Pere",true);
+		User u9 = new User( "test2@test2.test2", "test2", "test2","tes2","test2",true);
+		User u10 = new User( "bob@bob.bob", "bob", "bob","bobby","bob",true);
 		
 		userRepo.save(u1);
 		userRepo.save(u2);
