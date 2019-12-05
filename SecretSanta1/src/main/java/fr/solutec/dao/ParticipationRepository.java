@@ -20,6 +20,9 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 
 	public Participation findByParticipantAndEvenement(User u, SSanta ev);
+	
+	public Participation findByParticipantIdAndEvenementId(Long idUser, Long idSanta);
+
 
 
 }

@@ -91,6 +91,8 @@ private SouhaitRepository souhaitRepo;
 		Participation p11 = new Participation(u6,s2,true);
 		Participation p12 = new Participation(u7,s3,true);
 		Participation p13 = new Participation(u2,s3,true);
+		Participation p14 = new Participation(u2,s4,false);
+		Participation p15 = new Participation(u2,s5,false);
 		
 		participationRepo.save(p1);
 		participationRepo.save(p2);
@@ -105,6 +107,8 @@ private SouhaitRepository souhaitRepo;
 		participationRepo.save(p11);
 		participationRepo.save(p12);
 		participationRepo.save(p13);
+		participationRepo.save(p14);
+		participationRepo.save(p15);
 		
 		
 		Souhait sh1 = new Souhait("Une voiture", u1, s1,1);
