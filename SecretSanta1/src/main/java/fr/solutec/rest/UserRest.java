@@ -1,5 +1,6 @@
 package fr.solutec.rest;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.Souhait;
 import fr.solutec.entities.User;
 
 @RestController
@@ -19,6 +21,13 @@ public class UserRest {
 	
 	@Autowired
 	private UserRepository userRepo;
+	
+	
+	@RequestMapping(value = "/finduser/{idUser}", method = RequestMethod.GET)
+	public Optional<User> getByUserId(@PathVariable Long idUser){
+		return  userRepo.findById(idUser);
+	}
+	
 	
 	@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
 	public User invitationUser(@RequestBody User user ) {
