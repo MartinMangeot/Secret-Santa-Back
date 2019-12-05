@@ -1,6 +1,7 @@
 package fr.solutec.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -22,6 +23,8 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	public Participation findByParticipantAndEvenement(User u, SSanta ev);
 	
 	public Participation findByParticipantIdAndEvenementId(Long idUser, Long idSanta);
+	
+	public Optional<Participation> findById(Long id);
 
 
 

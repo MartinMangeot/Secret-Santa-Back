@@ -148,7 +148,7 @@ public class ParticipationRest {
 			
 			p=l.get(i);
 			
-			a.add(p.getId());
+			a.add(p.getParticipant().getId());
 		}
 		Collections.shuffle(a, new Random(1));
 		for (int i = 0; i < x; i++) {
@@ -164,5 +164,13 @@ public class ParticipationRest {
 		return l;
 	}
 	
-	
+	@RequestMapping(value = "/santa/cible", method = RequestMethod.POST)
+	public Optional<Participation> afficherCible(@PathVariable User u, @PathVariable SSanta ev) {
+		
+		Participation parti = participationRepo.findByParticipantAndEvenement(u, ev);
+		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
+		
+		return parti2;
+		
+}
 }
