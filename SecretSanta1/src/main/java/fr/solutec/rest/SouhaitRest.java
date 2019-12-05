@@ -40,7 +40,10 @@ public class SouhaitRest {
 		return true;
 	}
 	
-	
+	@RequestMapping(value = "/souhait/{idUser}/{idSanta}/{ordre}", method = RequestMethod.GET)
+	public Souhait recupSouhaitByIdUserAndIdSantaAndOrdre(@PathVariable Long idUser, @PathVariable Long idSanta, @PathVariable int ordre){
+		return souhaitRepo.findByIdUserAndIdSantaAndOrdre(idUser,idSanta,ordre);
+	}
 	
 
 }

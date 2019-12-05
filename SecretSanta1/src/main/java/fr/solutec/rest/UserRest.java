@@ -102,7 +102,7 @@ public class UserRest {
 				userRepo.save(user);
 				return false;
 			}
-		}
+		} 
 		else {
 			user.setInscriptionEnd(true);
 			userRepo.save(user);

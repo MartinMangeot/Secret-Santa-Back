@@ -82,21 +82,21 @@ private MurRepository murRepo;
 		ssantaRepo.save(s5);
 		
 
-		Participation p1 = new Participation(u1,s1,true);
-		Participation p2 = new Participation(u2,s1,false);
-		Participation p3 = new Participation(u3,s1,true);
-		Participation p4 = new Participation(u4,s1,true);
-		Participation p5 = new Participation(u5,s1,true);
-		Participation p6 = new Participation(u1,s2,true);
-		Participation p7 = new Participation(u1,s3,true);
-		Participation p8 = new Participation(u2,s2,true);
-		Participation p9 = new Participation(u3,s3,false);
-		Participation p10 = new Participation(u6,s3,true);
-		Participation p11 = new Participation(u6,s2,true);
-		Participation p12 = new Participation(u7,s3,true);
-		Participation p13 = new Participation(u2,s3,true);
-		Participation p14 = new Participation(u2,s4,false);
-		Participation p15 = new Participation(u2,s5,false);
+		Participation p1 = new Participation(u1,s1,true, null);
+		Participation p2 = new Participation(u2,s1,false, null);
+		Participation p3 = new Participation(u3,s1,true, null);
+		Participation p4 = new Participation(u4,s1,true, null);
+		Participation p5 = new Participation(u5,s1,true, null);
+		Participation p6 = new Participation(u1,s2,true, null);
+		Participation p7 = new Participation(u1,s3,true, null);
+		Participation p8 = new Participation(u2,s2,true, null);
+		Participation p9 = new Participation(u3,s3,false, null);
+		Participation p10 = new Participation(u6,s3,true, null);
+		Participation p11 = new Participation(u6,s2,true, null);
+		Participation p12 = new Participation(u7,s3,true, null);
+		Participation p13 = new Participation(u2,s3,true, null);
+		Participation p14 = new Participation(u2,s4,false, null);
+		Participation p15 = new Participation(u2,s5,false, null);
 		
 		participationRepo.save(p1);
 		participationRepo.save(p2);
