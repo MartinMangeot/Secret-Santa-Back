@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import fr.solutec.entities.Participation;
+import fr.solutec.entities.SSanta;
 import fr.solutec.entities.User;
 
 public interface ParticipationRepository extends CrudRepository<Participation, Long>{
@@ -17,6 +18,7 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public List<Participation> findParticipantByEvenementId(Long id);
 	
-	//public Participation findByUser(User user);
+	public Participation findByParticipantAndEvenement(User u, SSanta ev);
+	
 
 }

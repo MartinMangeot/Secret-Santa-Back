@@ -1,6 +1,7 @@
 package fr.solutec.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -53,6 +54,15 @@ public class ParticipationRest {
 		return participationRepo.findParticipantByEvenementId(id);
 	}
 	
+	
+	@RequestMapping(value = "/validParticipation", method = RequestMethod.PUT)
+	public void confirmerParticipationByUser(@RequestBody Participation part) {
+		//Participation p =new Participation();
+		//p= participationRepo.findByParticipantAndEvenement(part.getParticipant(), part.getEvenement());  
+		
+		part.setParticipe(true);
+		participationRepo.save(part);
+	}
 	//@RequestMapping(value = "/home/invitation", method = RequestMethod.POST)
 	//public Participation creerInvitation(@PathVariable Long id) {
 		

@@ -48,8 +48,7 @@ public class UserRest {
 			pf.setInscriptionEnd(pe.get().getInscriptionEnd());
 			if(pf.getInscriptionEnd()==false) {
 				user.setId(pf.getId());
-				userRepo.save(user);
-				
+				userRepo.save(user);				
 				return false;
 			}else {
 				return true;	
@@ -62,6 +61,7 @@ public class UserRest {
 		}
 			
 	}
+	
 	
 	@RequestMapping(value = "/connexion", method = RequestMethod.POST)
 	public User connexion(@RequestBody User p) {

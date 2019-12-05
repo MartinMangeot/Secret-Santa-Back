@@ -68,7 +68,7 @@ private SouhaitRepository souhaitRepo;
 		SSanta s2 = new SSanta("Noel 2", u1, true);
 		SSanta s3 = new SSanta("Noel 3", u2, true);
 		SSanta s4 = new SSanta("Noel 4", u3, true);
-		SSanta s5 = new SSanta("Noel 4", u3, true);
+		SSanta s5 = new SSanta("Noel 5", u3, true);
 		
 		ssantaRepo.save(s1);
 		ssantaRepo.save(s2);
