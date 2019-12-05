@@ -1,6 +1,5 @@
 package fr.solutec.entities;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,14 +13,38 @@ public class Mur {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
-	private SSanta event;
+	private Participation participation;
 	
-	private Date timeMessage;
 	
 	private String message;
 	
 	@Lob
 	private byte[] image;
+
+	
+	
+	public Mur() {
+		super();
+	}
+
+	public Mur(Participation participation, String message) {
+		super();
+		this.participation = participation;
+		this.message = message;
+	}
+
+	public Mur(Participation participation, byte[] image) {
+		super();
+		this.participation = participation;
+		this.image = image;
+	}
+
+	public Mur(Participation participation, String message, byte[] image) {
+		super();
+		this.participation = participation;
+		this.message = message;
+		this.image = image;
+	}
 
 	public Long getId() {
 		return id;
@@ -31,20 +54,12 @@ public class Mur {
 		this.id = id;
 	}
 
-	public SSanta getEvent() {
-		return event;
+	public Participation getParticipation() {
+		return participation;
 	}
 
-	public void setEvent(SSanta event) {
-		this.event = event;
-	}
-
-	public Date getTimeMessage() {
-		return timeMessage;
-	}
-
-	public void setTimeMessage(Date timeMessage) {
-		this.timeMessage = timeMessage;
+	public void setParticipation(Participation participation) {
+		this.participation = participation;
 	}
 
 	public String getMessage() {
@@ -63,31 +78,9 @@ public class Mur {
 		this.image = image;
 	}
 
-	public Mur() {
-		super();
-	}
-
-	public Mur(SSanta event, Date timeMessage, String message, byte[] image) {
-		super();
-		this.event = event;
-		this.timeMessage = timeMessage;
-		this.message = message;
-		this.image = image;
-	}
-
-	public Mur(SSanta event, Date timeMessage, byte[] image) {
-		super();
-		this.event = event;
-		this.timeMessage = timeMessage;
-		this.image = image;
-	}
-
-	public Mur(SSanta event, Date timeMessage, String message) {
-		super();
-		this.event = event;
-		this.timeMessage = timeMessage;
-		this.message = message;
-	}
+	
+	
+	
 	
 	
 	

@@ -28,6 +28,8 @@ public class UserRest {
 			pf.setId(pe.get().getId());
 			pf.setMail(pe.get().getMail());
 			pf.setPseudo(pe.get().getPseudo());
+			pf.setNom(pe.get().getNom());
+			pf.setPrenom(pe.get().getPrenom());
 			pf.setInscriptionEnd(true);
 				return pf;
 			}
@@ -71,6 +73,8 @@ public class UserRest {
 			pf.setId(pe.get().getId());
 			pf.setMail(pe.get().getMail());
 			pf.setPseudo(pe.get().getPseudo());
+			pf.setNom(pe.get().getNom());
+			pf.setPrenom(pe.get().getPrenom());
 			pf.setInscriptionEnd(pe.get().getInscriptionEnd());
 		}
 		return pf;
@@ -84,6 +88,8 @@ public class UserRest {
 			pf.setId(pe.get().getId());
 			pf.setMail(pe.get().getMail());
 			pf.setPseudo(pe.get().getPseudo());
+			pf.setNom(pe.get().getNom());
+			pf.setPrenom(pe.get().getPrenom());
 			pf.setInscriptionEnd(pe.get().getInscriptionEnd());
 		}
 		return pf;

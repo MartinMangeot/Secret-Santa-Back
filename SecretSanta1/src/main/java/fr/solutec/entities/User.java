@@ -12,12 +12,30 @@ public class User {
 	private String mail;
 	private String mdp;
 	private String pseudo;
+	private String nom;
+	private String prenom;
 	private Boolean inscriptionEnd;
 	
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", mail=" + mail + ", mdp=" + mdp + ", pseudo=" + pseudo + ", inscriptionEnd="
-				+ inscriptionEnd + "]";
+		return "User [id=" + id + ", mail=" + mail + ", pseudo=" + pseudo + ", nom=" + nom
+				+ ", prenom=" + prenom + ", inscriptionEnd=" + inscriptionEnd + "]";
 	}
 
 	public Long getId() {
@@ -64,13 +82,17 @@ public class User {
 		super();
 	}
 
-	public User(String mail, String mdp, String pseudo, Boolean inscriptionEnd) {
+	public User(String mail, String mdp, String pseudo, String nom, String prenom, Boolean inscriptionEnd) {
 		super();
 		this.mail = mail;
 		this.mdp = mdp;
 		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
 		this.inscriptionEnd = inscriptionEnd;
 	}
+
+	
 	
 	
 
