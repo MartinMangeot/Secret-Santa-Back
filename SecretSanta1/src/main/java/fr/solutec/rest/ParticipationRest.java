@@ -156,8 +156,6 @@ public class ParticipationRest {
 			
 			p.setIdCadeau(a.get(i));
 			participationRepo.save(p);
-			
-			//l.set(i, p);
 		}	
 		System.out.println(l.toString());
 		return l;
@@ -169,7 +167,16 @@ public class ParticipationRest {
 		Participation parti = participationRepo.findByParticipantAndEvenement(u, ev);
 		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
 		
-		return parti2;
+		return parti2;}
 		
-}
+		@RequestMapping(value = "/SupprimerParticipation/{iduser}/{idsanta}", method = RequestMethod.DELETE)
+		public void SupprimerParticipantSanta(@PathVariable Long iduser, @PathVariable Long idsanta) {
+			
+			Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
+			participationRepo.deleteById(parti.getId());
+			
+			
+			
+		
+		}
 }
