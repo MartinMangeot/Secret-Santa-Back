@@ -142,12 +142,12 @@ private MurRepository murRepo;
 		Souhait sh17 = new Souhait("Une voiture", u1, s3,3);
 		Souhait sh18 = new Souhait("Une voiture", u1, s3,5);
 		
-		Souhait sh19 = new Souhait("Une voiture", u1, s1,1);
-		Souhait sh20 = new Souhait("Une console", u1, s1,2);
-		Souhait sh21 = new Souhait("Une télé", u1, s1,3);
-		Souhait sh22 = new Souhait("Un voyage", u2, s1,1);
-		Souhait sh23 = new Souhait("Une voiture", u3, s1,2);
-		Souhait sh24 = new Souhait("Une toupie", u3, s1,1);
+		Souhait sh19 = new Souhait("Une voiture", u1, s6,1);
+		Souhait sh20 = new Souhait("Une console", u1, s6,2);
+		Souhait sh21 = new Souhait("Une télé", u1, s6,3);
+		Souhait sh22 = new Souhait("Un voyage", u2, s6,4);
+		Souhait sh23 = new Souhait("Une voiture", u3, s6,5);
+		Souhait sh24 = new Souhait("Une toupie", u3, s6,6);
 		
 		souhaitRepo.save(sh1);
 		souhaitRepo.save(sh2);
