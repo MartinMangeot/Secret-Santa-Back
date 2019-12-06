@@ -15,7 +15,8 @@ public class SSanta {
 	@ManyToOne
 	private User createur;
 	
-	private Boolean enCours;
+	private boolean enCours;
+	private boolean tirageFait;
 
 	
 	
@@ -24,20 +25,26 @@ public class SSanta {
 		super();
 	}
 
-	public SSanta(Long id, String nomSSanta, User createur, Boolean enCours) {
+	
+	public SSanta(String nomSSanta, User createur, boolean enCours, boolean tirageFait) {
 		super();
-		this.id = id;
 		this.nomSSanta = nomSSanta;
 		this.createur = createur;
 		this.enCours = enCours;
+		this.tirageFait = tirageFait;
 	}
 
-	public SSanta(String nomSSanta, User createur, Boolean enCours) {
-		super();
-		this.nomSSanta = nomSSanta;
-		this.createur = createur;
-		this.enCours = enCours;
+
+	public boolean isTirageFait() {
+		return tirageFait;
 	}
+
+	public void setTirageFait(boolean tirageFait) {
+		this.tirageFait = tirageFait;
+	}
+
+
+	
 
 	public String getNomSSanta() {
 		return nomSSanta;
@@ -65,11 +72,11 @@ public class SSanta {
 
 	
 
-	public Boolean getEnCours() {
+	public boolean getEnCours() {
 		return enCours;
 	}
 
-	public void setEnCours(Boolean enCours) {
+	public void setEnCours(boolean enCours) {
 		this.enCours = enCours;
 	}
 	

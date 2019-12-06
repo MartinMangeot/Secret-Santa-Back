@@ -2,6 +2,7 @@ package fr.solutec.dao;
 
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import fr.solutec.entities.SSanta;
@@ -12,4 +13,5 @@ public interface SSantaRepository extends CrudRepository<SSanta, Long>{
 	public Optional<SSanta> findByCreateur(User createur);
 	
 	public User findCreateurById(Long id );
+	
 }
