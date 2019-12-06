@@ -46,14 +46,10 @@ public class ParticipationRest {
 //		return participationRepo.save(user,ssanta);
 //	}
 //	
-	@RequestMapping(value = "/participantsanta/{id}/{participe}", method = RequestMethod.GET)
-	public List<Participation> recupSantaAndParticipantByIdUserAndByParticipe(@PathVariable Long  id, @PathVariable boolean participe) {
-		//Participation p = new Participation();
-				
-		//p = participationRepo.findByParticipantIdAndPresent(id,participe);
+	@RequestMapping(value = "/participantsanta/{id}/{participe}/{enCours}", method = RequestMethod.GET)
+	public List<Participation> recupSantaAndParticipantByIdUserAndByParticipe(@PathVariable Long  id, @PathVariable boolean participe, @PathVariable boolean enCours) {
 		
-		
-		return participationRepo.findByParticipantIdAndPresent(id,participe);
+		return participationRepo.findByParticipantIdAndPresentAndEvenementEnCours(id,participe,enCours);
 	}
 	
 	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)

@@ -13,7 +13,7 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public List<Participation> findByParticipantId(Long id);
 	
-	public List<Participation> findByParticipantIdAndPresent(Long id, boolean participe);
+	public List<Participation> findByParticipantIdAndPresentAndEvenementEnCours(Long id, boolean participe,boolean enCours);
 	
 	public List<Participation> findEvenementByParticipantId(Long id);
 	
