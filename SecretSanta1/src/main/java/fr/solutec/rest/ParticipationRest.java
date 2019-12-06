@@ -142,7 +142,7 @@ public class ParticipationRest {
 		final String expediteur = "secret.santa.dev17@gmail.com";
 		final String password = "dev17test!";
 		final String objet = "Bienvenue sur Secret Santa !";
-		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur http://localhost:4200/ !!";
+		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur 51.254.112.59 !!";
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
