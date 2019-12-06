@@ -57,6 +57,13 @@ public class SSantaRest {
 	public SSanta saveSanta(@RequestBody SSanta s){
 		return ssantaRepo.save(s);
 	}
+
+//	@RequestMapping(value = "/ssanta/historique/{idUser}", method = RequestMethod.POST)
+//	public SSanta recupSantaHistorique(@PathVariable Long id){
+//		return ssantaRepo.findAllBy(s);
+//	}
+	
+	
 	
 	
 	
