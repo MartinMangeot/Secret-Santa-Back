@@ -69,11 +69,11 @@ private MurRepository murRepo;
 		userRepo.save(u9);
 		userRepo.save(u10);	
 		
-		SSanta s1 = new SSanta("Noel 1", u1, true);
-		SSanta s2 = new SSanta("Noel 2", u1, true);
-		SSanta s3 = new SSanta("Noel 3", u2, true);
-		SSanta s4 = new SSanta("Noel 4", u3, true);
-		SSanta s5 = new SSanta("Noel 5", u3, true);
+		SSanta s1 = new SSanta("Noel 1", u1, true,false);
+		SSanta s2 = new SSanta("Noel 2", u1, true,false);
+		SSanta s3 = new SSanta("Noel 3", u2, true,false);
+		SSanta s4 = new SSanta("Noel 4", u3, true,false);
+		SSanta s5 = new SSanta("Noel 5", u3, true,false);
 		
 		ssantaRepo.save(s1);
 		ssantaRepo.save(s2);

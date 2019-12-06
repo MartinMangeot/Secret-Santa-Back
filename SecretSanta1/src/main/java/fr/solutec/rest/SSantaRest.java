@@ -1,6 +1,7 @@
 package fr.solutec.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,6 +46,16 @@ public class SSantaRest {
 	@RequestMapping(value = "/santaCreateur/{id}", method = RequestMethod.GET)
 	public User getCreateurDuSanta(@PathVariable Long id){
 		return  ssantaRepo.findCreateurById(id);
+	}
+	
+	@RequestMapping(value = "/ssanta/{id}", method = RequestMethod.GET)
+	public Optional<SSanta> recupSanta(@PathVariable Long id){
+		return ssantaRepo.findById(id);
+	}
+	
+	@RequestMapping(value = "/ssanta", method = RequestMethod.POST)
+	public SSanta recupSanta(@RequestBody SSanta s){
+		return ssantaRepo.save(s);
 	}
 	
 	
