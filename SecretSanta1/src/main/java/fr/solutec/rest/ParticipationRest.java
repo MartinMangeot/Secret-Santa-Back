@@ -46,14 +46,18 @@ public class ParticipationRest {
 //		return participationRepo.save(user,ssanta);
 //	}
 //	
-	@RequestMapping(value = "/participantsanta/{id}/{participe}", method = RequestMethod.GET)
-	public List<Participation> recupSantaAndParticipantByIdUserAndByParticipe(@PathVariable Long  id, @PathVariable boolean participe) {
-		//Participation p = new Participation();
-				
-		//p = participationRepo.findByParticipantIdAndPresent(id,participe);
+	@RequestMapping(value = "/participantsanta/{id}/{participe}/{enCours}", method = RequestMethod.GET)
+	public List<Participation> recupSantaAndParticipantByIdUserAndByParticipe(@PathVariable Long  id, @PathVariable boolean participe, @PathVariable boolean enCours) {
+		List<Participation> p = new ArrayList<Participation>();
+		p=participationRepo.findByParticipantIdAndPresentAndEvenementEnCours(id,participe,enCours);
+		if (p.size()<=0) {
+			return null;
+		}
+		else {
+			return p;
+		}
 		
 		
-		return participationRepo.findByParticipantIdAndPresent(id,participe);
 	}
 	
 	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)
@@ -63,10 +67,6 @@ public class ParticipationRest {
 	
 	@RequestMapping(value = "/santa/{id}", method = RequestMethod.GET)
 	public List<Participation> recupSantaByIdUser(@PathVariable Long  id) {
-		
-		for (Participation iterable_element : participationRepo.findEvenementByParticipantId(id)) {
-			System.out.println(iterable_element);
-		}
 		return participationRepo.findEvenementByParticipantId(id);
 	}
 	
@@ -167,16 +167,25 @@ public class ParticipationRest {
 		Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
 		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
 		
-		return parti2;}
+		return parti2;
+	}
 		
-		@RequestMapping(value = "/SupprimerParticipation/{iduser}/{idsanta}", method = RequestMethod.DELETE)
-		public void SupprimerParticipantSanta(@PathVariable Long iduser, @PathVariable Long idsanta) {
+	@RequestMapping(value = "/SupprimerParticipation/{iduser}/{idsanta}", method = RequestMethod.DELETE)
+	public void SupprimerParticipantSanta(@PathVariable Long iduser, @PathVariable Long idsanta) {
 			
 			Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
 			participationRepo.deleteById(parti.getId());
-			
-			
-			
-		
-		}
+	}
+	
+	
+//	@RequestMapping(value = "/santa/hitorique/{id}", method = RequestMethod.GET)
+//	public List<Participation> recupHistoriqueByIdUser(@PathVariable Long  id) {
+//		List<Participation> p = new ArrayList<Participation>();
+//		p = participationRepo.findEvenementByParticipantId(id);
+//		return participationRepo.findHistorique(p);
+//	}
+
+	
+	
+	
 }

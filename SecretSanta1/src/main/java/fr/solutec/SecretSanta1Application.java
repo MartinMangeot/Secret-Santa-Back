@@ -74,12 +74,14 @@ private MurRepository murRepo;
 		SSanta s3 = new SSanta("Noel 3", u2, true,false);
 		SSanta s4 = new SSanta("Noel 4", u3, true,false);
 		SSanta s5 = new SSanta("Noel 5", u3, true,false);
+		SSanta s6 = new SSanta("Noel 6 terminé", u3, false,true);
 		
 		ssantaRepo.save(s1);
 		ssantaRepo.save(s2);
 		ssantaRepo.save(s3);
 		ssantaRepo.save(s4);
 		ssantaRepo.save(s5);
+		ssantaRepo.save(s6);
 		
 
 		Participation p1 = new Participation(u1,s1,true, null);
@@ -97,6 +99,8 @@ private MurRepository murRepo;
 		Participation p13 = new Participation(u2,s3,true, null);
 		Participation p14 = new Participation(u2,s4,false, null);
 		Participation p15 = new Participation(u2,s5,false, null);
+		Participation p16 = new Participation(u1,s6,true, (long)2);
+		Participation p17 = new Participation(u2,s6,true, (long)1);
 		
 		participationRepo.save(p1);
 		participationRepo.save(p2);
@@ -113,6 +117,8 @@ private MurRepository murRepo;
 		participationRepo.save(p13);
 		participationRepo.save(p14);
 		participationRepo.save(p15);
+		participationRepo.save(p16);
+		participationRepo.save(p17);
 		
 		
 		Souhait sh1 = new Souhait("Une voiture", u1, s1,1);
@@ -136,6 +142,13 @@ private MurRepository murRepo;
 		Souhait sh17 = new Souhait("Une voiture", u1, s3,3);
 		Souhait sh18 = new Souhait("Une voiture", u1, s3,5);
 		
+		Souhait sh19 = new Souhait("Une voiture", u1, s6,1);
+		Souhait sh20 = new Souhait("Une console", u1, s6,2);
+		Souhait sh21 = new Souhait("Une télé", u1, s6,3);
+		Souhait sh22 = new Souhait("Un voyage", u2, s6,4);
+		Souhait sh23 = new Souhait("Une voiture", u3, s6,5);
+		Souhait sh24 = new Souhait("Une toupie", u3, s6,6);
+		
 		souhaitRepo.save(sh1);
 		souhaitRepo.save(sh2);
 		souhaitRepo.save(sh3);
@@ -154,6 +167,12 @@ private MurRepository murRepo;
 		souhaitRepo.save(sh16);
 		souhaitRepo.save(sh17);
 		souhaitRepo.save(sh18);
+		souhaitRepo.save(sh19);
+		souhaitRepo.save(sh20);
+		souhaitRepo.save(sh21);
+		souhaitRepo.save(sh22);
+		souhaitRepo.save(sh23);
+		souhaitRepo.save(sh24);
 		
 		
 		Mur mur1 = new Mur(p8,"message1 de user2");

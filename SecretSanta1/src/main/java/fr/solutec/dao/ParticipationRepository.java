@@ -3,6 +3,7 @@ package fr.solutec.dao;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import fr.solutec.entities.Participation;
@@ -13,7 +14,7 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public List<Participation> findByParticipantId(Long id);
 	
-	public List<Participation> findByParticipantIdAndPresent(Long id, boolean participe);
+	public List<Participation> findByParticipantIdAndPresentAndEvenementEnCours(Long id, boolean participe,boolean enCours);
 	
 	public List<Participation> findEvenementByParticipantId(Long id);
 	
@@ -27,6 +28,10 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	public Optional<Participation> findById(Long id);
 	
 	public void deleteById(Long id);
+	
+//	@Query(value="SELECT participations FROM p where s.personne.id = ?1 and s.santa.id = ?2 and s.ordre = ?3")
+//	public List<Participation> findHistorique(List<Participation> p);
+	
 
 
 
