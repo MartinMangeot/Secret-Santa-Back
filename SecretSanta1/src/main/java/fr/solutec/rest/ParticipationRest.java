@@ -4,7 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.Random;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -119,12 +128,48 @@ public class ParticipationRest {
 			u.setInscriptionEnd(false);
 			user = uRespos.save(u);
 		}
+		sendMail(u.getMail());
+		
 		
 		Participation p = new Participation(user, s, false, null);
 		
 		return participationRepo.save(p);
 	}
 
+	
+	private void sendMail(String mail) {
+		Properties props = new Properties();
+		final String expediteur = "secret.santa.dev17@gmail.com";
+		final String password = "dev17test!";
+		final String objet = "Bienvenue sur Secret Santa !";
+		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur http://localhost:4200/ !!";
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(expediteur,password);
+			}
+		});
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(expediteur));
+			message.addRecipients(Message.RecipientType.TO, InternetAddress.parse(mail));
+			message.setSubject(objet);
+			message.setText(contenu);
+
+			Transport.send(message);
+
+			System.out.println("Mail envoyé");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	@RequestMapping(value = "/participation/valider", method = RequestMethod.POST)
 	public Participation modifbooleanValidation(@RequestBody Participation p) {
 		//Optional<Participation> pRecup = participationRepo.findById(p.getId());
