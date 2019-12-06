@@ -73,7 +73,7 @@ private MurRepository murRepo;
 		SSanta s2 = new SSanta("Noel 2", u1, true,false);
 		SSanta s3 = new SSanta("Noel 3", u2, true,false);
 		SSanta s4 = new SSanta("Noel 4", u3, true,false);
-		SSanta s5 = new SSanta("Noel 5", u3, true,false);
+		SSanta s5 = new SSanta("Noel 5", u3, false,false);
 		SSanta s6 = new SSanta("Noel 6 terminé", u3, false,true);
 		
 		ssantaRepo.save(s1);

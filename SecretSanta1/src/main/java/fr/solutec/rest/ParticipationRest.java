@@ -170,6 +170,8 @@ public class ParticipationRest {
 	}
 	
 	
+	
+	
 //	@RequestMapping(value = "/santa/hitorique/{id}", method = RequestMethod.GET)
 //	public List<Participation> recupHistoriqueByIdUser(@PathVariable Long  id) {
 //		List<Participation> p = new ArrayList<Participation>();
