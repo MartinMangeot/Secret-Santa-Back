@@ -54,7 +54,7 @@ public class SSantaRest {
 	}
 	
 	@RequestMapping(value = "/ssanta", method = RequestMethod.POST)
-	public SSanta recupSanta(@RequestBody SSanta s){
+	public SSanta saveSanta(@RequestBody SSanta s){
 		return ssantaRepo.save(s);
 	}
 	
