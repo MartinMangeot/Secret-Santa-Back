@@ -58,6 +58,14 @@ public class SSantaRest {
 		return ssantaRepo.save(s);
 	}
 
+	
+	@RequestMapping(value = "/clotureSanta", method = RequestMethod.POST)
+	public void ClotureSanta(@RequestBody SSanta s) {
+			
+			
+			s.setEnCours(false);
+			ssantaRepo.save(s);
+	}
 //	@RequestMapping(value = "/ssanta/historique/{idUser}", method = RequestMethod.POST)
 //	public SSanta recupSantaHistorique(@PathVariable Long id){
 //		return ssantaRepo.findAllBy(s);
