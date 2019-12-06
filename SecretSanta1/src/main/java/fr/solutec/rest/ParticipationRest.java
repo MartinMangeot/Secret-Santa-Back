@@ -164,10 +164,10 @@ public class ParticipationRest {
 		return l;
 	}
 	
-	@RequestMapping(value = "/santa/cible", method = RequestMethod.POST)
-	public Optional<Participation> afficherCible(@PathVariable User u, @PathVariable SSanta ev) {
+	@RequestMapping(value = "/santa/cible/{iduser}/{idsanta}", method = RequestMethod.GET)
+	public Optional<Participation> afficherCible(@PathVariable Long iduser,@PathVariable Long idsanta) {
 		
-		Participation parti = participationRepo.findByParticipantAndEvenement(u, ev);
+		Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
 		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
 		
 		return parti2;
