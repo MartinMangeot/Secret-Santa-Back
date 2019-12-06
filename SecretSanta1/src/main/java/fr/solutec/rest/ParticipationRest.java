@@ -63,10 +63,6 @@ public class ParticipationRest {
 	
 	@RequestMapping(value = "/santa/{id}", method = RequestMethod.GET)
 	public List<Participation> recupSantaByIdUser(@PathVariable Long  id) {
-		
-		for (Participation iterable_element : participationRepo.findEvenementByParticipantId(id)) {
-			System.out.println(iterable_element);
-		}
 		return participationRepo.findEvenementByParticipantId(id);
 	}
 	
@@ -167,16 +163,25 @@ public class ParticipationRest {
 		Participation parti = participationRepo.findByParticipantAndEvenement(u, ev);
 		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
 		
-		return parti2;}
+		return parti2;
+	}
 		
-		@RequestMapping(value = "/SupprimerParticipation/{iduser}/{idsanta}", method = RequestMethod.DELETE)
-		public void SupprimerParticipantSanta(@PathVariable Long iduser, @PathVariable Long idsanta) {
+	@RequestMapping(value = "/SupprimerParticipation/{iduser}/{idsanta}", method = RequestMethod.DELETE)
+	public void SupprimerParticipantSanta(@PathVariable Long iduser, @PathVariable Long idsanta) {
 			
 			Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
 			participationRepo.deleteById(parti.getId());
-			
-			
-			
-		
-		}
+	}
+	
+	
+//	@RequestMapping(value = "/santa/hitorique/{id}", method = RequestMethod.GET)
+//	public List<Participation> recupHistoriqueByIdUser(@PathVariable Long  id) {
+//		List<Participation> p = new ArrayList<Participation>();
+//		p = participationRepo.findEvenementByParticipantId(id);
+//		return participationRepo.findHistorique(p);
+//	}
+
+	
+	
+	
 }
