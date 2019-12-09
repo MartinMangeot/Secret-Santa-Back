@@ -142,7 +142,7 @@ public class ParticipationRest {
 		final String expediteur = "secret.santa.dev17@gmail.com";
 		final String password = "dev17test!";
 		final String objet = "Bienvenue sur Secret Santa !";
-		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur 51.254.112.59 !!";
+		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur 5 !!";
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -194,6 +194,7 @@ public class ParticipationRest {
 			
 			a.add(p.getParticipant().getId());
 		}
+		Collections.shuffle(a, new Random(1));
 		for (int i = 0; i < x; i++) {
 			
 			p=l.get(i);
@@ -201,19 +202,9 @@ public class ParticipationRest {
 			p.setIdCadeau(a.get(i));
 			participationRepo.save(p);
 		}	
+		System.out.println(l.toString());
 		return l;
 	}
-	
-	@RequestMapping(value = "/santa/tirage/annuler/{id}", method = RequestMethod.GET)
-	public List<Participation> annulerTirage(@PathVariable Long id) {
-		List<Participation> participations = participationRepo.findParticipantByEvenementId(id);
-		for (Participation participation : participations) {
-			participation.setIdCadeau(null);
-			participationRepo.save(participation);
-		}
-		return participations;
-	}
-	
 	
 	@RequestMapping(value = "/santa/cible/{iduser}/{idsanta}", method = RequestMethod.GET)
 	public Optional<Participation> afficherCible(@PathVariable Long iduser,@PathVariable Long idsanta) {
