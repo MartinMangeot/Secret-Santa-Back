@@ -84,6 +84,18 @@ public class ParticipationRest {
 		return participationRepo.findParticipantByEvenementId(id);
 	}
 	
+	@RequestMapping(value = "/santa/participants/{id}/{present}", method = RequestMethod.GET)
+	public List<Participation> recupParticipantsSelonPresence(@PathVariable Long id, @PathVariable boolean present) {
+		List<Participation> participants = new ArrayList<Participation>();
+		participants = participationRepo.findParticipantByEvenementIdAndPresent(id, present);
+		if (participants.size()==0) {
+			return null;
+		}
+		else {
+			return participants;
+		}
+	}
+	
 
 	
 	@RequestMapping(value = "/validParticipation", method = RequestMethod.PUT)
