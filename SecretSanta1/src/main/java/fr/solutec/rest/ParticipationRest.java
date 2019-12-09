@@ -69,6 +69,20 @@ public class ParticipationRest {
 		
 	}
 	
+	@RequestMapping(value = "/nbSanta/{id}/{participe}/{enCours}", method = RequestMethod.GET)
+	public int recupnbSanta(@PathVariable Long  id, @PathVariable boolean participe, @PathVariable boolean enCours) {
+		List<Participation> p = new ArrayList<Participation>();
+		p=participationRepo.findByParticipantIdAndPresentAndEvenementEnCours(id,participe,enCours);
+		if (p.size()<=0) {
+			return 0;
+		}
+		else {
+			return p.size();
+		}
+		
+		
+	}
+	
 	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)
 	public Participation recupParticipationFromSantaAndUser(@PathVariable Long  idUser, @PathVariable Long idSanta) {
 		return participationRepo.findByParticipantIdAndEvenementId(idUser,idSanta);
