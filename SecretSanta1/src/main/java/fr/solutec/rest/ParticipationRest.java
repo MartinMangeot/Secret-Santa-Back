@@ -194,7 +194,6 @@ public class ParticipationRest {
 			
 			a.add(p.getParticipant().getId());
 		}
-		Collections.shuffle(a, new Random(1));
 		for (int i = 0; i < x; i++) {
 			
 			p=l.get(i);
