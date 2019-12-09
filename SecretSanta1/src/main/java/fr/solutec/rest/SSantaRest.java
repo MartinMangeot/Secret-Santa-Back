@@ -66,10 +66,13 @@ public class SSantaRest {
 			s.setEnCours(false);
 			ssantaRepo.save(s);
 	}
-//	@RequestMapping(value = "/ssanta/historique/{idUser}", method = RequestMethod.POST)
-//	public SSanta recupSantaHistorique(@PathVariable Long id){
-//		return ssantaRepo.findAllBy(s);
-//	}
+	
+	@RequestMapping(value = "/ssanta/annulertirage/{id}", method = RequestMethod.GET)
+	public Optional<SSanta> annulerTirage(@PathVariable Long id){
+		Optional<SSanta> santa =  ssantaRepo.findById(id);
+		santa.get().setTirageFait(false);
+		return santa;
+	}
 	
 	
 	
