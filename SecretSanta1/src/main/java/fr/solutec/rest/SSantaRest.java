@@ -70,7 +70,13 @@ public class SSantaRest {
 	@RequestMapping(value = "/ssanta/annulertirage/{id}", method = RequestMethod.GET)
 	public Optional<SSanta> annulerTirage(@PathVariable Long id){
 		Optional<SSanta> santa =  ssantaRepo.findById(id);
+		SSanta santa2 = new SSanta();
+		santa2.setId(santa.get().getId());
+		santa2.setCreateur(santa.get().getCreateur());
+		santa2.setEnCours(santa.get().getEnCours());
+		santa2.setNomSSanta(santa.get().getNomSSanta());
 		santa.get().setTirageFait(false);
+		ssantaRepo.save(santa2);
 		return santa;
 	}
 	
