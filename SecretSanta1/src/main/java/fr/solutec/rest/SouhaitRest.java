@@ -45,5 +45,12 @@ public class SouhaitRest {
 		return souhaitRepo.findByIdUserAndIdSantaAndOrdre(idUser,idSanta,ordre);
 	}
 	
+	@RequestMapping(value = "/user/santa/derniersouhait/{idUser}/{idEvent}", method = RequestMethod.GET)
+	public Souhait getDernierSouhait(@PathVariable Long idUser, @PathVariable Long idEvent){
+		List<Souhait> souhaits =  (List<Souhait>) souhaitRepo.findAllByPersonneIdAndBySantaId(idUser,idEvent);
+		return souhaits.get(souhaits.size()-1);
+	}
+	
+	
 
 }
