@@ -206,6 +206,16 @@ public class ParticipationRest {
 		return l;
 	}
 	
+	@RequestMapping(value = "/santa/tirage/annuler/{id}", method = RequestMethod.GET)
+	public List<Participation> annulerTirage(@PathVariable Long id) {
+		List<Participation> participations = participationRepo.findParticipantByEvenementId(id);
+		for (Participation participation : participations) {
+			participation.setIdCadeau(null);
+			participationRepo.save(participation);
+		}
+		return participations;
+	}
+	
 	@RequestMapping(value = "/santa/cible/{iduser}/{idsanta}", method = RequestMethod.GET)
 	public Optional<Participation> afficherCible(@PathVariable Long iduser,@PathVariable Long idsanta) {
 		
