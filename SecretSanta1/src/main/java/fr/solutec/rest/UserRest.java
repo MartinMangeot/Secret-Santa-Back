@@ -1,5 +1,6 @@
 package fr.solutec.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -39,8 +40,18 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value = "/invitationAutoComplete", method = RequestMethod.GET)
-	public List<User> recupParticipants() {
-		return (List<User>) userRepo.findAll();
+	public List<String> recupParticipants() {
+		ArrayList<String> mails = new ArrayList<String>();
+		List<User> l = (List<User>) userRepo.findAll();
+		int x = l.size();
+		String m = new String();
+		for (int i = 0; i < x; i++) {
+			
+			m=l.get(i).getMail();
+			
+			mails.add(m);
+		}
+		return  mails;
 	}
 	
 	
