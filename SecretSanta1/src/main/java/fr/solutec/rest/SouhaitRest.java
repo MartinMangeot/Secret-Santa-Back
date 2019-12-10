@@ -59,7 +59,13 @@ public class SouhaitRest {
 	
 	@RequestMapping(value = "/souhaitEnDessous/{idUser}/{idSanta}/{ordre}", method = RequestMethod.GET)
 	public List<Souhait> recupSouhaitsenDessous(@PathVariable Long idUser, @PathVariable Long idSanta, @PathVariable int ordre){
-		return souhaitRepo.findByIdUserAndIdSantaAndGreaterOrdre(idUser,idSanta,ordre);
+		List<Souhait> souhaits = souhaitRepo.findByIdUserAndIdSantaAndGreaterOrdre(idUser,idSanta,ordre);
+		if (souhaits.size()==0) {
+			return null;
+		}
+		else {
+			return souhaits;
+		}
 	}
 	
 	
