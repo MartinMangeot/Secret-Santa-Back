@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.UserRepository;
+import fr.solutec.entities.Participation;
 import fr.solutec.entities.Souhait;
 import fr.solutec.entities.User;
 
@@ -35,6 +36,11 @@ public class UserRest {
 	@RequestMapping(value = "/finduser/{idUser}", method = RequestMethod.GET)
 	public Optional<User> getByUserId(@PathVariable Long idUser){
 		return  userRepo.findById(idUser);
+	}
+	
+	@RequestMapping(value = "/invitationAutoComplete", method = RequestMethod.GET)
+	public List<User> recupParticipants() {
+		return (List<User>) userRepo.findAll();
 	}
 	
 	
