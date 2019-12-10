@@ -30,6 +30,8 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public Participation findByParticipantIdAndEvenementId(Long idUser, Long idSanta);
 	
+	public Participation findByParticipantMailAndEvenementId(String mailUser, Long idSanta);
+	
 	public Optional<Participation> findById(Long id);
 	
 	public void deleteById(Long id);

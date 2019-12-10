@@ -45,9 +45,10 @@ public class ParticipationRest {
 	private UserRepository uRespos;
 	
 	@RequestMapping(value = "/participations", method = RequestMethod.GET)
-	public List<Participation> recupAll(Long  id) {
+	public List<Participation> recupAll() {
 		return (List<Participation>) participationRepo.findAll();
 	}
+	
 
 	
 //	@RequestMapping(value = "/participation", method = RequestMethod.POST)
@@ -86,6 +87,11 @@ public class ParticipationRest {
 	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)
 	public Participation recupParticipationFromSantaAndUser(@PathVariable Long  idUser, @PathVariable Long idSanta) {
 		return participationRepo.findByParticipantIdAndEvenementId(idUser,idSanta);
+	}
+	
+	@RequestMapping(value = "/participationmail/{mailUser}/{idSanta}", method = RequestMethod.GET)
+	public Participation recupParticipationFromSantaIdAndUserMail(@PathVariable String  mailUser, @PathVariable Long idSanta) {
+		return participationRepo.findByParticipantMailAndEvenementId(mailUser,idSanta);
 	}
 	
 	@RequestMapping(value = "/santa/{id}", method = RequestMethod.GET)
@@ -168,7 +174,8 @@ public class ParticipationRest {
 		final String expediteur = "secret.santa.dev17@gmail.com";
 		final String password = "dev17test!";
 		final String objet = "Bienvenue sur Secret Santa !";
-		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur 5 !!";
+		final String lien = "localhost:4200/login";
+		final String contenu = "Bonjour, vous avez été invité à participer à un événement secret santa !! Pour rejoindre vos amis et faire de nombreux heureux, connectez ou inscrivez vous sur " + lien +" !!";
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
