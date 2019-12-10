@@ -250,10 +250,10 @@ public class ParticipationRest {
 	}
 	
 	@RequestMapping(value = "/santa/cible/{iduser}/{idsanta}", method = RequestMethod.GET)
-	public Optional<Participation> afficherCible(@PathVariable Long iduser,@PathVariable Long idsanta) {
+	public Participation afficherCible(@PathVariable Long iduser,@PathVariable Long idsanta) {
 		
 		Participation parti = participationRepo.findByParticipantIdAndEvenementId(iduser, idsanta);
-		Optional<Participation> parti2 = participationRepo.findById(parti.getIdCadeau());
+		Participation parti2 = participationRepo.findByParticipantIdAndEvenementId(parti.getIdCadeau(), idsanta);
 		
 		return parti2;
 	}
