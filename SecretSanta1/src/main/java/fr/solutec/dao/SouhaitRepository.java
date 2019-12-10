@@ -17,4 +17,7 @@ public interface SouhaitRepository extends CrudRepository<Souhait, Long>{
 	
 	@Query(value="SELECT s FROM Souhait s where s.personne.id = ?1 and s.santa.id = ?2 and s.ordre = ?3")
 	public Souhait findByIdUserAndIdSantaAndOrdre(Long idUser, Long idSanta, int ordre);
+	
+	@Query(value="SELECT s FROM Souhait s where s.personne.id = ?1 and s.santa.id = ?2 and s.ordre > ?3")
+	public List<Souhait> findByIdUserAndIdSantaAndGreaterOrdre(Long idUser, Long idSanta, int ordre);
 }
