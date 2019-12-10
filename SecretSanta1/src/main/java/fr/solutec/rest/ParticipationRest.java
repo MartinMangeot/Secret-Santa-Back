@@ -69,6 +69,20 @@ public class ParticipationRest {
 		
 	}
 	
+	@RequestMapping(value = "/nbSanta/{id}/{participe}/{enCours}", method = RequestMethod.GET)
+	public int recupnbSanta(@PathVariable Long  id, @PathVariable boolean participe, @PathVariable boolean enCours) {
+		List<Participation> p = new ArrayList<Participation>();
+		p=participationRepo.findByParticipantIdAndPresentAndEvenementEnCours(id,participe,enCours);
+		if (p.size()<=0) {
+			return 0;
+		}
+		else {
+			return p.size();
+		}
+		
+		
+	}
+	
 	@RequestMapping(value = "/participation/{idUser}/{idSanta}", method = RequestMethod.GET)
 	public Participation recupParticipationFromSantaAndUser(@PathVariable Long  idUser, @PathVariable Long idSanta) {
 		return participationRepo.findByParticipantIdAndEvenementId(idUser,idSanta);
@@ -82,6 +96,18 @@ public class ParticipationRest {
 	@RequestMapping(value = "/santa/participants/{id}", method = RequestMethod.GET)
 	public List<Participation> recupParticipants(@PathVariable Long id) {
 		return participationRepo.findParticipantByEvenementId(id);
+	}
+	
+	@RequestMapping(value = "/santa/participants/{id}/{present}", method = RequestMethod.GET)
+	public List<Participation> recupParticipantsSelonPresence(@PathVariable Long id, @PathVariable boolean present) {
+		List<Participation> participants = new ArrayList<Participation>();
+		participants = participationRepo.findParticipantByEvenementIdAndPresent(id, present);
+		if (participants.size()==0) {
+			return null;
+		}
+		else {
+			return participants;
+		}
 	}
 	
 

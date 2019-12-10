@@ -18,6 +18,9 @@ public interface ParticipationRepository extends CrudRepository<Participation, L
 	
 	public List<Participation> findEvenementByParticipantId(Long id);
 	
+	//@Query(value="SELECT participations FROM p where p.evenement.id = ?1 and p.present = ?2")
+	public List<Participation> findParticipantByEvenementIdAndPresent(Long id, boolean present);
+	
 	public List<Participation> findParticipantByEvenementId(Long id);
 	
 	public Participation findByEvenementId(Long id);
